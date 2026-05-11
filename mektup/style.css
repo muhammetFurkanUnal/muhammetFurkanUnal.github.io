@@ -8,7 +8,9 @@
     --envelope-width: min(720px, 90vw);
     --envelope-height: min(500px, 62vw);
     --paper-width: min(720px, 92vw);
-    --section-height: min(86vh, 920px);
+    /* Reserve ~80px of headroom at the top and bottom so the close button and
+       up/down nav arrows never overlap the paper. */
+    --section-height: min(calc(100vh - 160px), 920px);
 }
 
 body {
