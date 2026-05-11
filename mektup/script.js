@@ -1,66 +1,85 @@
-const envelope = document.getElementById('envelope');
-const letterContent = document.getElementById('letterContent');
-const pages = document.querySelectorAll('.letter-page');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-const closeBtn = document.getElementById('closeBtn');
+document.addEventListener('DOMContentLoaded', () => {
+    const envelope = document.getElementById('envelope');
+    const seal = document.getElementById('waxSeal');
+    const letterPaper = document.getElementById('letterPaper');
+    const pages = document.querySelectorAll('.letter-page');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const totalPages = pages.length;
 
-let currentPage = 1;
-let isOpened = false;
+    let currentPage = 1;
+    let isOpened = false;
+    let isAnimating = false;
 
-envelope.addEventListener('click', () => {
-    if (!isOpened) {
+    // Clean up any persisted seal state from previous design iterations —
+    // the seal always starts intact now.
+    try { localStorage.removeItem('mektup-seal-broken'); } catch (_) {}
+
+    function applyPaperOffset() {
+        // Paper is `totalPages` sections tall. To move up by one section we
+        // translate by (100 / totalPages)% of the paper's own height.
+        const pct = (currentPage - 1) * (100 / totalPages);
+        letterPaper.style.transform = `translateY(-${pct}%)`;
+    }
+
+    function updateNavArrows() {
+        const atFirst = currentPage === 1;
+        const atLast  = currentPage === totalPages;
+        prevBtn.classList.toggle('active', !atFirst);
+        nextBtn.classList.toggle('active', !atLast);
+    }
+
+    function openLetter() {
+        if (isOpened) return;
         isOpened = true;
         envelope.classList.add('opened');
-        letterContent.classList.add('active');
-        closeBtn.classList.add('active');
+        // Mark the seal as broken for the rest of this session — closing the
+        // letter won't restore it; only a page refresh does.
+        seal.classList.add('broken');
+        // After the envelope finishes growing, light up the controls.
+        setTimeout(() => {
+            closeBtn.classList.add('active');
+            updateNavArrows();
+        }, 950);
     }
-});
 
-closeBtn.addEventListener('click', () => {
-    isOpened = false;
-    envelope.classList.remove('opened');
-    letterContent.classList.remove('active');
-    closeBtn.classList.remove('active');
-    currentPage = 1;
-    showPage(1);
-});
+    function closeLetter() {
+        if (!isOpened) return;
+        isOpened = false;
+        envelope.classList.remove('opened');
+        closeBtn.classList.remove('active');
+        prevBtn.classList.remove('active');
+        nextBtn.classList.remove('active');
+        // Reset the paper back to page 1 without animating, so a reopen starts clean.
+        setTimeout(() => {
+            letterPaper.classList.add('no-transition');
+            currentPage = 1;
+            applyPaperOffset();
+            void letterPaper.offsetWidth;
+            letterPaper.classList.remove('no-transition');
+        }, 850);
+    }
 
-function showPage(pageNum) {
-    pages.forEach(page => {
-        page.classList.remove('active');
+    function goToPage(newPage) {
+        if (isAnimating) return;
+        if (newPage === currentPage || newPage < 1 || newPage > totalPages) return;
+        isAnimating = true;
+        currentPage = newPage;
+        applyPaperOffset();
+        updateNavArrows();
+        setTimeout(() => { isAnimating = false; }, 820);
+    }
+
+    seal.addEventListener('click', openLetter);
+    closeBtn.addEventListener('click', closeLetter);
+    prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
+    nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
+
+    document.addEventListener('keydown', (e) => {
+        if (!isOpened) return;
+        if (e.key === 'ArrowUp')        goToPage(currentPage - 1);
+        else if (e.key === 'ArrowDown') goToPage(currentPage + 1);
+        else if (e.key === 'Escape')    closeLetter();
     });
-    document.querySelector(`[data-page="${pageNum}"]`).classList.add('active');
-
-    // Ok düğmelerini kontrol et
-    prevBtn.style.opacity = pageNum === 1 ? '0.3' : '0.7';
-    nextBtn.style.opacity = pageNum === 4 ? '0.3' : '0.7';
-    prevBtn.style.pointerEvents = pageNum === 1 ? 'none' : 'auto';
-    nextBtn.style.pointerEvents = pageNum === 4 ? 'none' : 'auto';
-}
-
-prevBtn.addEventListener('click', () => {
-    if (currentPage > 1) {
-        currentPage--;
-        showPage(currentPage);
-    }
-});
-
-nextBtn.addEventListener('click', () => {
-    if (currentPage < 4) {
-        currentPage++;
-        showPage(currentPage);
-    }
-});
-
-// Klavye navigasyonu
-document.addEventListener('keydown', (e) => {
-    if (!isOpened) return;
-    if (e.key === 'ArrowLeft' && currentPage > 1) {
-        currentPage--;
-        showPage(currentPage);
-    } else if (e.key === 'ArrowRight' && currentPage < 4) {
-        currentPage++;
-        showPage(currentPage);
-    }
 });

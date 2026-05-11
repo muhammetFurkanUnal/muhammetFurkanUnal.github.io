@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zindandan Güllü'ye Mektup</title>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
+    <title>Mektup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="envelope-container">
         <div class="envelope" id="envelope">
-            <div class="envelope-flap"></div>
-            <div class="envelope-front">oku</div>
-        </div>
-    </div>
-
-    <div class="letter-content" id="letterContent">
+            <div class="wax-seal" id="waxSeal">
+                <div class="seal-base"></div>
+                <div class="seal-half left"></div>
+                <div class="seal-half right"></div>
+                <div class="seal-text">Mührü<br>Kır</div>
+            </div>
+            <div class="paper-viewport">
+                <div class="letter-paper" id="letterPaper">
         <!-- Sayfa 1 -->
-        <div class="letter-page active" data-page="1">
+        <div class="letter-page" data-page="1">
             <h1>Zindandan Güllü'ye Mektup</h1>
             <p>
                 Güllü anneciğim, <br>
@@ -72,7 +74,8 @@
                 Benim gönül hanemin en güzel odası güneş görür ve <em>çiçek</em> kokar. <br>
                 Bu odanın içinde bir plak, <br>
                 Döner durur, <br>
-                Bana onu hatırlatan şarkılar çalar.
+                Bana onu hatırlatan şarkılar çalar. <br>
+                <em>"Ne hayattayım, ne yanındayım, ne de seninleyim.."</em>
             </p>
 
             <p>
@@ -114,16 +117,19 @@
             <p>Acaba <em>Kalp Hanım</em> neler düşünüyor?</p>
             <div class="page-indicator">4 / 4</div>
         </div>
-
-        <div class="nav-arrow left active" id="prevBtn">
-            <div class="arrow-triangle"></div>
+            </div>
+            </div>
         </div>
-        <div class="nav-arrow right active" id="nextBtn">
-            <div class="arrow-triangle"></div>
-        </div>
-
-        <div class="close-letter" id="closeBtn">×</div>
     </div>
+
+    <div class="nav-arrow up" id="prevBtn">
+        <div class="arrow-triangle"></div>
+    </div>
+    <div class="nav-arrow down" id="nextBtn">
+        <div class="arrow-triangle"></div>
+    </div>
+
+    <div class="close-letter" id="closeBtn">×</div>
 
     <script src="script.js"></script>
 </body>
