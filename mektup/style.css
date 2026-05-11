@@ -111,8 +111,8 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 180px;
-    height: 180px;
+    width: clamp(110px, 14vw, 180px);
+    height: clamp(110px, 14vw, 180px);
     transform: translate(-50%, -50%) rotate(-3deg);
     display: flex;
     align-items: center;
@@ -196,7 +196,7 @@ body {
     z-index: 2;
     color: #f4e8d0;
     font-family: 'Crimson Text', serif;
-    font-size: 26px;
+    font-size: clamp(15px, 1.8vw, 26px);
     font-weight: 600;
     font-style: italic;
     text-align: center;
@@ -267,7 +267,8 @@ body {
 .letter-page {
     width: 100%;
     height: var(--section-height);
-    padding: 60px 64px 50px;
+    /* Fluid padding: shrinks on small screens so content has more room */
+    padding: clamp(22px, 3.5vw, 60px) clamp(20px, 4vw, 64px) clamp(18px, 3vw, 50px);
     box-sizing: border-box;
     color: #3d2817;
     position: relative;
@@ -276,8 +277,8 @@ body {
 
 .letter-page h1 {
     text-align: center;
-    font-size: 32px;
-    margin-bottom: 40px;
+    font-size: clamp(18px, 2.5vw, 32px);
+    margin-bottom: clamp(18px, 2.2vw, 40px);
     color: #6b3410;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
     font-style: italic;
@@ -285,9 +286,9 @@ body {
 }
 
 .letter-page p {
-    font-size: 18px;
-    line-height: 1.95;
-    margin-bottom: 24px;
+    font-size: clamp(12px, 1.5vw, 18px);
+    line-height: 1.85;
+    margin-bottom: clamp(12px, 1.4vw, 24px);
     text-align: justify;
 }
 
@@ -299,9 +300,9 @@ body {
 
 .page-indicator {
     position: absolute;
-    bottom: 22px;
-    right: 64px;
-    font-size: 14px;
+    bottom: clamp(12px, 1.6vw, 22px);
+    right: clamp(20px, 4vw, 64px);
+    font-size: clamp(10px, 0.9vw, 14px);
     color: #8b7355;
     opacity: 0.55;
     font-style: italic;
@@ -392,16 +393,6 @@ body {
     :root {
         --envelope-width: 92vw;
         --envelope-height: 64vw;
-    }
-    .wax-seal {
-        width: 140px;
-        height: 140px;
-    }
-    .seal-text {
-        font-size: 22px;
-    }
-    .letter-page {
-        padding: 40px 32px;
     }
     .nav-arrow {
         width: 46px;
