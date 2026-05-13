@@ -1,0 +1,117 @@
+/* ============================================================
+   TEMA — Tüm renk, tipografi ve şekil değişkenleri burada.
+   Burayı değiştirerek sitenin tüm görünümünü güncelleyebilirsin.
+   ============================================================ */
+
+:root {
+  /* Tipografi */
+  --font-display: "Fraunces", "Playfair Display", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --fs-hero: clamp(2.4rem, 4vw, 3.6rem);
+  --fs-h2: 1.5rem;
+  --fs-h3: 1.1rem;
+  --fs-body: 0.95rem;
+  --fs-small: 0.8rem;
+  --fs-tiny: 0.7rem;
+
+  /* Geometri */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --border-w: 1px;
+
+  /* Boşluk */
+  --space-xs: 0.4rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+
+  /* Hareket */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --t-fast: 120ms;
+  --t-med: 240ms;
+
+  /* Harita ızgarası */
+  --grid-size: 64px;
+  --grid-thin: 1px;
+
+  /* AÇIK TEMA — kağıt / mimari çizim hissi */
+  --color-bg: #f4f1ea;
+  --color-bg-soft: #ece8df;
+  --color-grid: rgba(60, 50, 30, 0.07);
+  --color-grid-major: rgba(60, 50, 30, 0.12);
+
+  --color-card: #fdfbf6;
+  --color-card-border: #d8d2c4;
+  --color-card-shadow: 0 1px 2px rgba(40, 30, 10, 0.04),
+                      0 8px 24px rgba(40, 30, 10, 0.06);
+  --color-card-shadow-hover: 0 2px 4px rgba(40, 30, 10, 0.06),
+                             0 16px 40px rgba(40, 30, 10, 0.1);
+
+  --color-text: #1f1c17;
+  --color-text-soft: #5b554a;
+  --color-text-faint: #8a8377;
+
+  --color-accent: #3d6b4a;          /* zeytin yeşili */
+  --color-accent-soft: #e5ede2;
+  --color-accent-ink: #2a4a33;
+
+  --color-highlight: #b8884a;       /* sıcak vurgu (tarçın) */
+  --color-divider: rgba(60, 50, 30, 0.12);
+
+  --color-ui-bg: rgba(253, 251, 246, 0.85);
+  --color-ui-border: rgba(60, 50, 30, 0.14);
+  --color-ui-hover: rgba(60, 50, 30, 0.06);
+
+  /* Şehir manzarası — açık tema (gündüz parkı) */
+  --color-grass: #b9c8a3;            /* sade sage çim */
+  --color-grass-shade: #a3b88a;      /* çim gölgesi */
+  --color-plaza: #ece5d3;            /* mermer/açık beton */
+  --color-plaza-edge: #c8bfa8;       /* kaldırım taşı */
+  --color-plaza-shadow: rgba(40, 30, 10, 0.08);
+  --color-road: #5a544a;             /* asfalt */
+  --color-road-line: #d4b06a;        /* sarı yol şeridi */
+}
+
+/* KOYU TEMA */
+[data-theme="dark"] {
+  --color-bg: #14171a;
+  --color-bg-soft: #1a1e22;
+  --color-grid: rgba(220, 210, 180, 0.05);
+  --color-grid-major: rgba(220, 210, 180, 0.09);
+
+  --color-card: #1e2226;
+  --color-card-border: #2d3338;
+  --color-card-shadow: 0 1px 2px rgba(0, 0, 0, 0.2),
+                      0 8px 24px rgba(0, 0, 0, 0.25);
+  --color-card-shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.25),
+                             0 16px 40px rgba(0, 0, 0, 0.35);
+
+  --color-text: #e8e3d6;
+  --color-text-soft: #a8a195;
+  --color-text-faint: #6b6558;
+
+  --color-accent: #7fb088;
+  --color-accent-soft: rgba(127, 176, 136, 0.12);
+  --color-accent-ink: #a0c8a8;
+
+  --color-highlight: #d4a060;
+  --color-divider: rgba(220, 210, 180, 0.1);
+
+  --color-ui-bg: rgba(30, 34, 38, 0.85);
+  --color-ui-border: rgba(220, 210, 180, 0.12);
+  --color-ui-hover: rgba(220, 210, 180, 0.06);
+
+  /* Şehir manzarası — koyu tema (gece parkı) */
+  --color-grass: #2c3a2a;
+  --color-grass-shade: #1f2c1e;
+  --color-plaza: #2e3236;
+  --color-plaza-edge: #3e4348;
+  --color-plaza-shadow: rgba(0, 0, 0, 0.4);
+  --color-road: #14171a;
+  --color-road-line: #8a6a3a;
+}

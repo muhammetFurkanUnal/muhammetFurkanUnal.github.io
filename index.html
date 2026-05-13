@@ -1,8 +1,300 @@
-<h1>
-	Muhammet Furkan Ünal +
-</h1>
-<h2>
-	<a href="unalmfurkan.me">
-		unalmfurkan.me
-	</a>
-</h2>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Muhammet Furkan Ünal — Bilgisayar Mühendisi</title>
+  <meta name="description" content="Muhammet Furkan Ünal — Bilgisayar Mühendisliği öğrencisi, yapay zeka araştırmacısı. Portfolyo, projeler ve deneyimler.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- Tema, flicker olmasın diye head'de erkenden uygulanır -->
+  <script src="assets/js/theme.js"></script>
+</head>
+<body>
+
+  <!-- ============ HARİTA ============ -->
+  <div class="map" id="map">
+    <div class="map-grid"></div>
+    <div class="map-canvas">
+
+      <!-- ============ ZEMİN KATMANI (kartların altında) ============ -->
+      <svg class="ground"
+           viewBox="-3000 -2500 6000 5000"
+           preserveAspectRatio="xMidYMid meet"
+           aria-hidden="true">
+
+        <!-- Çim arka plan -->
+        <rect class="ground__grass" x="-3000" y="-2500" width="6000" height="5000"/>
+
+        <!-- Bölge plazaları -->
+        <!-- Eğitim plazası (üst) -->
+        <rect class="plaza" x="-240" y="-1020" width="480" height="360" rx="28"/>
+
+        <!-- Deneyim plazası (sağ — 2x2 grid) -->
+        <rect class="plaza" x="860" y="-420" width="880" height="840" rx="28"/>
+
+        <!-- Projeler plazası (sol — piramit yerleşim) -->
+        <rect class="plaza" x="-1710" y="-470" width="870" height="900" rx="28"/>
+
+        <!-- Yetenekler + İletişim plazası (alt) -->
+        <rect class="plaza" x="-360" y="780" width="720" height="960" rx="28"/>
+
+        <!-- Hero meydanı (yuvarlak) -->
+        <circle class="plaza plaza--circle" cx="0" cy="0" r="380"/>
+      </svg>
+
+      <!-- --- HERO --- -->
+      <article class="card card--hero" style="--x: 0px; --y: 0px;">
+        <p class="card__label">Portfolyo · v1</p>
+        <h1 class="card__title">Muhammet Furkan Ünal</h1>
+        <p class="card__subtitle">Bilgisayar Mühendisliği Öğrencisi · Yapay Zeka Araştırmacısı</p>
+        <div class="hero-tags">
+          <span>Python</span>
+          <span>PyTorch</span>
+          <span>LLM</span>
+          <span>Full-Stack</span>
+          <span>Android</span>
+        </div>
+        <p class="hero-hint">↓ Sürükle · kaydır · keşfet ↓</p>
+      </article>
+
+      <!-- ============ EĞİTİM BÖLGESİ (ÜST) ============ -->
+      <div class="region-label" style="--x: 0px; --y: -1140px;">Eğitim</div>
+
+      <article class="card" style="--x: 0px; --y: -840px;">
+        <p class="card__label">2022 — 2026 · Devam</p>
+        <h3 class="card__title">İstanbul Medipol Üniversitesi</h3>
+        <p class="card__subtitle">Bilgisayar Mühendisliği · İngilizce, Tam Burslu</p>
+        <p class="card__body">4. sınıf. Ağırlıklı not ortalaması <b>3.80 / 4.00</b>. Yapay zeka, sistem programlama ve yazılım mühendisliği alanlarına yoğunlaştım.</p>
+        <div class="card__meta">
+          <span class="dot is-active"></span>
+          <span>Aktif</span>
+        </div>
+      </article>
+
+      <!-- ============ DENEYİM BÖLGESİ (SAĞ) ============ -->
+      <div class="region-label" style="--x: 1300px; --y: -560px;">Deneyim</div>
+
+      <article class="card card--experience" style="--x: 1100px; --y: -200px;">
+        <p class="card__label">Şubat 2026 — Devam · Yarı Zamanlı</p>
+        <h3 class="card__title">Medipol MEGA AI Research Center (MEBAR)</h3>
+        <p class="card__subtitle">Yapay Zeka Araştırmacısı</p>
+        <p class="card__body">
+          Teşhis, muayene ve ameliyat gibi yüksek hassasiyet gerektiren tıbbi süreçlerde kullanılmak ve akademik yayın
+          üretmek amacıyla, Medipol hekimleriyle iş birliği içerisinde yapay zeka modelleri ve sistemleri geliştiriyorum.
+        </p>
+        <div class="card__meta">
+          <span class="dot is-active"></span>
+          <span>Şu an buradayım</span>
+        </div>
+      </article>
+
+      <article class="card card--experience" style="--x: 1500px; --y: -200px;">
+        <p class="card__label">2023 Güz — Devam</p>
+        <h3 class="card__title">İstanbul Medipol Üniversitesi</h3>
+        <p class="card__subtitle">Öğretim Asistanı (TA)</p>
+        <p class="card__body">
+          Lisans seviyesinde mühendislik derslerinde öğretim üyelerine asistanlık; laboratuvar oturumları,
+          ödev değerlendirmesi ve öğrenci danışmanlığı.
+        </p>
+        <div class="card__meta">
+          <span class="dot is-active"></span>
+          <span>Aktif</span>
+        </div>
+      </article>
+
+      <article class="card card--experience" style="--x: 1100px; --y: 200px;">
+        <p class="card__label">Ağustos 2025 — Eylül 2025 · Staj</p>
+        <h3 class="card__title">BAYKAR Teknoloji</h3>
+        <p class="card__subtitle">Native Android Geliştirme</p>
+        <p class="card__body">
+          Şirkete özel native Android uygulamasının geliştirilmesine ve test/otomasyon sürecine katkı sağladım.
+          Jetpack Compose, Espresso ve dahili otomasyon araçları kullandım.
+        </p>
+        <div class="card__meta">
+          <span class="dot"></span>
+          <span>Tamamlandı</span>
+        </div>
+      </article>
+
+      <article class="card card--experience" style="--x: 1500px; --y: 200px;">
+        <p class="card__label">Temmuz 2024 — Ağustos 2024 · Staj</p>
+        <h3 class="card__title">TÜBİTAK BİLGEM</h3>
+        <p class="card__subtitle">Full-Stack Web Geliştirme</p>
+        <p class="card__body">
+          Profesyonel bir web uygulamasının geliştirme sürecine hem ön yüz hem arka yüz tarafında katkıda bulundum.
+        </p>
+        <div class="card__meta">
+          <span class="dot"></span>
+          <span>Tamamlandı</span>
+        </div>
+      </article>
+
+      <!-- ============ PROJELER BÖLGESİ (SOL) ============ -->
+      <div class="region-label" style="--x: -1275px; --y: -620px;">Projeler</div>
+
+      <article class="card card--project" style="--x: -1450px; --y: -250px;">
+        <p class="card__label">Mezuniyet Projesi · Devam Ediyor</p>
+        <h3 class="card__title">KIWIO</h3>
+        <p class="card__subtitle">Otonom Yapay Zeka Model Geliştirme Platformu</p>
+        <p class="card__body">
+          Literatür tarama, otonom kod üretimi ve iteratif optimizasyon süreçlerini kapsayan, agentic ve uçtan uca
+          otomatize edilmiş bir AI model geliştirme platformu.
+        </p>
+        <div class="card__meta">
+          <span class="dot is-active"></span>
+          <span>Agentic · LLM · MLOps</span>
+        </div>
+      </article>
+
+      <article class="card card--project" style="--x: -1100px; --y: -250px;">
+        <p class="card__label">Freelance</p>
+        <h3 class="card__title">AIMEL</h3>
+        <p class="card__subtitle">Profesyonel AI Destekli E-posta İstemcisi</p>
+        <p class="card__body">
+          Yapay zeka destekli cevap üretme, özetleme ve daha fazlasıyla donatılmış, profesyonel kullanım için
+          tasarlanmış tam kapsamlı bir e-posta uygulaması.
+        </p>
+        <div class="card__meta">
+          <span class="dot"></span>
+          <span>LLM · Electron · IMAP</span>
+        </div>
+      </article>
+
+      <article class="card card--project" style="--x: -1275px; --y: 200px;">
+        <p class="card__label">Donanım + Yazılım</p>
+        <h3 class="card__title">Otonom Sürüşlü Mini Araç</h3>
+        <p class="card__subtitle">Görüntü İşleme · Derin Öğrenme · Telemetri</p>
+        <p class="card__body">
+          Akıllı çarpışma önleme, şerit takibi, kablosuz telemetri ve kontrol, derin öğrenme tabanlı çevre farkındalığı
+          gibi işlevlere sahip otonom sürüş kabiliyetli mini araç.
+        </p>
+        <div class="card__meta">
+          <span class="dot"></span>
+          <span>PyTorch · OpenCV · YOLO</span>
+        </div>
+      </article>
+
+      <!-- ============ YETENEKLER BÖLGESİ (ALT) ============ -->
+      <div class="region-label" style="--x: 0px; --y: 720px;">Yetenekler</div>
+
+      <article class="card" style="--x: 0px; --y: 1080px; --w: 520px;">
+        <p class="card__label">Teknoloji Yığını</p>
+        <h3 class="card__title">Yetenekler</h3>
+        <div class="skill-grid">
+          <div class="skill-row">
+            <span class="skill-row__name">Programlama Dilleri</span>
+            <span class="skill-row__items"><b>Python</b> (ileri), Java, Kotlin, C, C#, JavaScript, HTML, CSS, SQL, MATLAB</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-row__name">Yapay Zeka &amp; ML</span>
+            <span class="skill-row__items"><b>PyTorch</b> (ileri), PyTorch Lightning, LangChain, scikit-learn, NumPy, Pandas, Matplotlib, Ollama, OpenAI, Google GenAI, OpenCV, YOLO</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-row__name">Web &amp; Framework</span>
+            <span class="skill-row__items">Spring Boot, .NET, Angular, React, Electron, Flask, FastAPI, Node.js, Kafka</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-row__name">Mobil (Android)</span>
+            <span class="skill-row__items">Android SDK, Jetpack Compose</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-row__name">Veritabanı</span>
+            <span class="skill-row__items">PostgreSQL, MySQL, MongoDB, SQLite, Redis, SQL Server</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-row__name">Test &amp; Otomasyon</span>
+            <span class="skill-row__items">Selenium, Appium, Maestro, TestNG, JUnit</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-row__name">DevOps &amp; Linux</span>
+            <span class="skill-row__items">Git, GitHub, Docker, Postman, Ubuntu/Server, Bash</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ============ İLETİŞİM (ALT) ============ -->
+      <article class="card" style="--x: 0px; --y: 1580px; --w: 420px;">
+        <p class="card__label">İletişim</p>
+        <h3 class="card__title">Yolumuz kesişsin</h3>
+        <ul class="contact-list">
+          <li><span class="k">E-posta</span><span class="v"><a href="mailto:hello@unalmfurkan.me">hello@unalmfurkan.me</a></span></li>
+          <li><span class="k">Telefon</span><span class="v">+90 553 505 28 02</span></li>
+          <li><span class="k">Konum</span><span class="v">Beykoz / Kavacık, İstanbul</span></li>
+          <li><span class="k">GitHub</span><span class="v"><a href="https://github.com/muhammetFurkanUnal" target="_blank" rel="noopener">muhammetFurkanUnal</a></span></li>
+          <li><span class="k">LinkedIn</span><span class="v"><a href="https://www.linkedin.com/in/muhammet-furkan-ünal" target="_blank" rel="noopener">muhammet-furkan-ünal</a></span></li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- ============ ÜST ÇUBUK ============ -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand__mark">M·F·Ünal</span>
+      <span class="brand__sub">unalmfurkan.me</span>
+    </div>
+    <div class="topbar-actions">
+      <button class="icon-btn theme-toggle" aria-label="Temayı değiştir" title="Temayı değiştir">
+        <svg class="sun" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+        <svg class="moon" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ SAĞ KONTROL ============ -->
+  <aside class="controls" aria-label="Harita kontrolleri">
+    <button class="icon-btn" data-action="zoom-in" aria-label="Yakınlaştır" title="Yakınlaştır (+)">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+      </svg>
+    </button>
+    <button class="icon-btn" data-action="zoom-out" aria-label="Uzaklaştır" title="Uzaklaştır (-)">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"/>
+      </svg>
+    </button>
+    <div class="divider"></div>
+    <button class="icon-btn" data-action="home" aria-label="Merkeze dön" title="Merkeze dön (0)">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/>
+      </svg>
+    </button>
+  </aside>
+
+  <!-- ============ ALT BÖLGE GEZGİNİ ============ -->
+  <nav class="legend" aria-label="Bölgeler">
+    <button class="legend__btn" data-active="true" data-x="0" data-y="0" data-scale="1">Merkez</button>
+    <button class="legend__btn" data-x="0" data-y="-840" data-scale="0.9">Eğitim</button>
+    <button class="legend__btn" data-x="1300" data-y="0" data-scale="0.55">Deneyim</button>
+    <button class="legend__btn" data-x="-1275" data-y="-20" data-scale="0.55">Projeler</button>
+    <button class="legend__btn" data-x="0" data-y="1080" data-scale="0.7">Yetenekler</button>
+    <button class="legend__btn" data-x="0" data-y="1580" data-scale="1">İletişim</button>
+  </nav>
+
+  <!-- ============ MİNİMAP ============ -->
+  <aside class="minimap" aria-hidden="true">
+    <div class="minimap__inner"></div>
+  </aside>
+
+  <!-- ============ İPUCU ============ -->
+  <div class="hint">Sürükle ile gez · Wheel ile yakınlaştır · Shift+Wheel ile yan kaydır</div>
+
+  <!-- Scriptler -->
+  <script src="assets/js/canvas.js"></script>
+  <script src="assets/js/app.js"></script>
+
+</body>
+</html>
