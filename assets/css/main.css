@@ -12,7 +12,7 @@ html, body {
   height: 100%;
   overflow: hidden;
   overscroll-behavior: none;
-  background: var(--color-grass);
+  background: var(--color-sea);
   color: var(--color-text);
   font-family: var(--font-body);
   font-size: var(--fs-body);
@@ -69,17 +69,38 @@ button {
    koordinatlarıyla doğrudan eşleşir. */
 .ground {
   position: absolute;
-  left: -3000px;
+  left: -4500px;
   top: -2500px;
-  width: 6000px;
+  width: 9000px;
   height: 5000px;
   pointer-events: none;
   overflow: visible;
 }
 
-.ground__grass {
-  fill: var(--color-grass);
+/* Ada katmanları: dıştan içe — kum (kıyı) + çim (ada içi) */
+.sand-outer {
+  fill: var(--color-sand);
+  transition: fill var(--t-med) var(--ease);
 }
+.sand-inner {
+  fill: var(--color-sand-deep);
+  transition: fill var(--t-med) var(--ease);
+}
+.island-grass {
+  fill: var(--color-grass);
+  transition: fill var(--t-med) var(--ease);
+}
+/* Deniz köpüğü — adanın hemen dışında ince halka */
+.sea-foam {
+  fill: none;
+  stroke: var(--color-sea-foam);
+  stroke-width: 6;
+  stroke-dasharray: 30 24;
+  pointer-events: none;
+}
+
+/* Eski referans için tutuluyor (ihtiyaç halinde) */
+.ground__grass { fill: var(--color-grass); }
 
 .plaza {
   fill: var(--color-plaza);
@@ -87,6 +108,135 @@ button {
   stroke-width: 4;
   filter: drop-shadow(0 6px 18px var(--color-plaza-shadow));
   transition: fill var(--t-med) var(--ease), stroke var(--t-med) var(--ease);
+}
+
+/* Patika — binadan caddeye giden ufak yol */
+.path-road {
+  fill: var(--color-road);
+  stroke: var(--color-plaza-edge);
+  stroke-width: 2;
+  transition: fill var(--t-med) var(--ease);
+}
+
+/* Halı saha — adadaki spor sahası (etkileşimsiz dekoratif alan) */
+.field {
+  fill: var(--color-field);
+  stroke: var(--color-building-edge);
+  stroke-width: 6;
+  filter: drop-shadow(0 8px 18px var(--color-plaza-shadow));
+  transition: fill var(--t-med) var(--ease), stroke var(--t-med) var(--ease);
+}
+.field-line {
+  fill: none;
+  stroke: var(--color-field-line);
+  stroke-width: 3;
+  pointer-events: none;
+}
+
+/* CV kağıdı — doğu cadde sonundaki gerçek PDF görüntüsü */
+.cv-paper-link {
+  pointer-events: auto;
+  cursor: pointer;
+}
+.cv-paper {
+  fill: var(--color-cv-paper);
+  stroke: var(--color-cv-paper-edge);
+  stroke-width: 2;
+  filter: drop-shadow(0 18px 32px var(--color-plaza-shadow))
+          drop-shadow(0 4px 8px var(--color-plaza-shadow));
+  transition: stroke var(--t-fast) var(--ease);
+}
+.cv-paper-link:hover .cv-paper { stroke: var(--color-accent); }
+.cv-paper-image {
+  pointer-events: none;
+}
+.cv-paper-label {
+  fill: var(--color-text-soft);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 88px;
+  letter-spacing: 0.04em;
+  text-anchor: middle;
+  pointer-events: none;
+}
+.cv-paper-sublabel {
+  fill: var(--color-text-faint);
+  font-family: var(--font-mono);
+  font-size: 38px;
+  letter-spacing: 0.18em;
+  text-anchor: middle;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* ---- HAVUZ — katmanlı, mermer bordürlü, dalgalı ---- */
+.pool-edge {
+  fill: var(--color-pool-edge);
+  stroke: var(--color-building-edge);
+  stroke-width: 4;
+  filter: drop-shadow(0 14px 28px var(--color-plaza-shadow));
+  transition: fill var(--t-med) var(--ease), stroke var(--t-med) var(--ease);
+}
+.pool {
+  fill: var(--color-pool);
+  transition: fill var(--t-med) var(--ease);
+}
+.pool-shallow {
+  fill: var(--color-pool-shallow);
+  opacity: 0.5;
+  transition: fill var(--t-med) var(--ease);
+}
+.pool-deep {
+  fill: var(--color-pool-deep);
+  opacity: 0.4;
+  transition: fill var(--t-med) var(--ease);
+}
+/* Yüzeydeki ışık yansıması */
+.pool-shine {
+  fill: var(--color-pool-tile);
+  pointer-events: none;
+}
+.pool-wave {
+  fill: none;
+  stroke: var(--color-pool-tile);
+  stroke-width: 3;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+/* Havuz merdiveni (kısa tırabzan görüntüsü) */
+.pool-ladder {
+  fill: none;
+  stroke: var(--color-pool-edge);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+/* Yol blokları — plaza halkaları ve cadde segmentleri (fill ile asfalt) */
+.road-block {
+  fill: var(--color-road);
+  stroke: none;
+  transition: fill var(--t-med) var(--ease);
+}
+
+/* Kaldırım — yolun dış sınırına ince çizgi */
+.curb {
+  fill: none;
+  stroke: var(--color-plaza-edge);
+  stroke-width: 4;
+  stroke-linecap: butt;
+  vector-effect: non-scaling-stroke;
+  transition: stroke var(--t-med) var(--ease);
+}
+
+/* Cadde orta şeridi (sarı kesikli) */
+.road-line {
+  fill: none;
+  stroke: var(--color-road-line);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 20 24;
+  opacity: 0.9;
+  transition: stroke var(--t-med) var(--ease);
 }
 
 /* --- Kart ortak ------------------------------------------------- */
@@ -99,7 +249,7 @@ button {
   width: var(--w, 320px);
   padding: var(--space-md) var(--space-md);
   background: var(--color-card);
-  border: var(--border-w) solid var(--color-card-border);
+  border: 6px solid var(--color-building-edge);
   border-radius: var(--radius-md);
   box-shadow: var(--color-card-shadow);
   transition: box-shadow var(--t-med) var(--ease),
@@ -214,11 +364,11 @@ button {
   font-weight: 400;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--color-text-faint);
-  opacity: 0.4;
+  color: var(--color-region-label);
   pointer-events: none;
   white-space: nowrap;
   font-style: italic;
+  transition: color var(--t-med) var(--ease);
 }
 
 /* --- Kart tür-özel stiller ------------------------------------- */

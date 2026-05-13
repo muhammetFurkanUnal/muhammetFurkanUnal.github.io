@@ -25,27 +25,146 @@
 
       <!-- ============ ZEMİN KATMANI (kartların altında) ============ -->
       <svg class="ground"
-           viewBox="-3000 -2500 6000 5000"
-           preserveAspectRatio="xMidYMid meet"
-           aria-hidden="true">
+           viewBox="-4500 -2500 9000 5000"
+           preserveAspectRatio="xMidYMid meet">
 
-        <!-- Çim arka plan -->
-        <rect class="ground__grass" x="-3000" y="-2500" width="6000" height="5000"/>
+        <!-- ===== ADA =====
+             Body bg deniz. Üstüne kum kıyısı, sonra ada içi çim. -->
+        <!-- Deniz köpüğü (adanın hemen dışındaki kesikli halka) -->
+        <rect class="sea-foam" x="-3960" y="-1960" width="7920" height="3920" rx="320"/>
+        <!-- Kıyı (dış kum, açık ten) -->
+        <rect class="sand-outer" x="-3900" y="-1900" width="7800" height="3800" rx="300"/>
+        <!-- İç kum (ıslak kum şeridi) -->
+        <rect class="sand-inner" x="-3820" y="-1820" width="7640" height="3640" rx="280"/>
+        <!-- Ada içi çim -->
+        <rect class="island-grass" x="-3760" y="-1760" width="7520" height="3520" rx="260"/>
 
-        <!-- Bölge plazaları -->
-        <!-- Eğitim plazası (üst) -->
-        <rect class="plaza" x="-240" y="-1020" width="480" height="360" rx="28"/>
+        <!-- ===== ANA CADDELER ===== -->
+        <g class="roads">
+          <!-- Kuzey: Hero → Eğitim önü -->
+          <rect class="road-block" x="-80" y="-660" width="160" height="660"/>
+          <!-- Doğu: Hero → Deneyim → CV -->
+          <rect class="road-block" x="0"   y="-80" width="2200" height="160"/>
+          <!-- Batı: Projeler içinden → sahil yoluna kadar uzun -->
+          <rect class="road-block" x="-3600" y="-80" width="3600" height="160"/>
+          <!-- Güney: Hero → Yetenekler -->
+          <rect class="road-block" x="-80" y="0" width="160" height="1700"/>
 
-        <!-- Deneyim plazası (sağ — 2x2 grid) -->
-        <rect class="plaza" x="860" y="-420" width="880" height="840" rx="28"/>
+          <!-- Sahil yolu: ada batı kıyısı boyunca, çim sınırı içinde, uçları yarım daire -->
+          <rect class="road-block" x="-3700" y="-1660" width="100" height="3320" rx="50"/>
 
-        <!-- Projeler plazası (sol — piramit yerleşim) -->
-        <rect class="plaza" x="-1710" y="-470" width="870" height="900" rx="28"/>
+          <!-- Halı saha bağlantısı (kuzey kıyıya yakın, sahil yolundan doğuya) -->
+          <rect class="road-block" x="-3600" y="-1250" width="200" height="100"/>
+          <!-- Havuz bağlantısı (güney kıyıya yakın, sahil yolundan doğuya) -->
+          <rect class="road-block" x="-3600" y="1190" width="200" height="100"/>
+        </g>
 
-        <!-- Yetenekler + İletişim plazası (alt) -->
-        <rect class="plaza" x="-360" y="780" width="720" height="960" rx="28"/>
+        <!-- ===== PATİKALAR (binalardan ve özel yapılardan caddeye ince yol) ===== -->
+        <g class="paths">
+          <!-- Eğitim -->
+          <rect class="path-road" x="-18" y="-740" width="36" height="80"/>
 
-        <!-- Hero meydanı (yuvarlak) -->
+          <!-- Projeler 3 binası -->
+          <rect class="path-road" x="-1718" y="-190" width="36" height="110"/>
+          <rect class="path-road" x="-1318" y="-190" width="36" height="110"/>
+          <rect class="path-road" x="-918"  y="-190" width="36" height="110"/>
+
+          <!-- Deneyim 4 binası -->
+          <rect class="path-road" x="1082" y="-190" width="36" height="110"/>
+          <rect class="path-road" x="1482" y="-190" width="36" height="110"/>
+          <rect class="path-road" x="1082" y="80"   width="36" height="110"/>
+          <rect class="path-road" x="1482" y="80"   width="36" height="110"/>
+
+          <!-- Yetenekler + İletişim -->
+          <rect class="path-road" x="-160" y="985"  width="80" height="36"/>
+          <rect class="path-road" x="80"   y="1085" width="130" height="36"/>
+
+          <!-- CV giriş patikası -->
+          <rect class="path-road" x="2200" y="-30" width="100" height="60"/>
+        </g>
+
+        <!-- ===== CADDE KENARLARI (kaldırım çizgileri) ===== -->
+        <g class="curbs">
+          <!-- Kuzey cadde -->
+          <line class="curb" x1="-80" y1="-660" x2="-80" y2="0"/>
+          <line class="curb" x1="80"  y1="-660" x2="80"  y2="0"/>
+          <!-- Doğu cadde -->
+          <line class="curb" x1="0"   y1="-80"  x2="2200" y2="-80"/>
+          <line class="curb" x1="0"   y1="80"   x2="2200" y2="80"/>
+          <!-- Batı cadde (sahil yoluna kadar) -->
+          <line class="curb" x1="-3600" y1="-80" x2="0" y2="-80"/>
+          <line class="curb" x1="-3600" y1="80"  x2="0" y2="80"/>
+          <!-- Güney cadde -->
+          <line class="curb" x1="-80" y1="0"    x2="-80" y2="1700"/>
+          <line class="curb" x1="80"  y1="0"    x2="80"  y2="1700"/>
+
+          <!-- Sahil yolu sol kenar -->
+          <line class="curb" x1="-3700" y1="-1610" x2="-3700" y2="1610"/>
+          <!-- Sahil yolu sağ kenar (4 segment) -->
+          <line class="curb" x1="-3600" y1="-1610" x2="-3600" y2="-1250"/>
+          <line class="curb" x1="-3600" y1="-1150" x2="-3600" y2="-80"/>
+          <line class="curb" x1="-3600" y1="80"    x2="-3600" y2="1190"/>
+          <line class="curb" x1="-3600" y1="1290"  x2="-3600" y2="1610"/>
+
+          <!-- Halı saha bağlantı yolu kenarları -->
+          <line class="curb" x1="-3600" y1="-1250" x2="-3400" y2="-1250"/>
+          <line class="curb" x1="-3600" y1="-1150" x2="-3400" y2="-1150"/>
+          <!-- Havuz bağlantı yolu kenarları -->
+          <line class="curb" x1="-3600" y1="1190" x2="-3400" y2="1190"/>
+          <line class="curb" x1="-3600" y1="1290" x2="-3400" y2="1290"/>
+        </g>
+
+        <!-- ===== CADDE ORTA ŞERİTLERİ ===== -->
+        <g class="road-lines">
+          <line class="road-line" x1="0" y1="-660" x2="0" y2="0"/>
+          <line class="road-line" x1="0" y1="0"    x2="2200" y2="0"/>
+          <line class="road-line" x1="-3600" y1="0" x2="0"  y2="0"/>
+          <line class="road-line" x1="0" y1="0"    x2="0"  y2="1700"/>
+          <!-- Sahil yolu orta şeridi -->
+          <line class="road-line" x1="-3650" y1="-1610" x2="-3650" y2="1610"/>
+        </g>
+
+        <!-- ===== HAVUZ (güney kıyıya yakın, sahil yolu doğusunda) ===== -->
+        <g class="pool-group">
+          <rect class="pool-edge" x="-3400" y="800" width="1080" height="880" rx="90"/>
+          <rect class="pool" x="-3360" y="840" width="1000" height="800" rx="60"/>
+          <rect class="pool-shallow" x="-3320" y="880" width="920" height="720" rx="40"/>
+          <rect class="pool-deep" x="-3220" y="960" width="720" height="560" rx="32"/>
+          <ellipse class="pool-shine" cx="-3110" cy="1020" rx="220" ry="60" transform="rotate(-18 -3110 1020)"/>
+          <ellipse class="pool-shine" cx="-2760" cy="1140" rx="80" ry="20" transform="rotate(-18 -2760 1140)" style="opacity:0.45"/>
+          <path class="pool-wave" d="M -3240,1280 Q -3090,1245 -2940,1280 T -2640,1280 T -2440,1280"/>
+          <path class="pool-wave" d="M -3200,1380 Q -3050,1350 -2900,1380 T -2600,1380 T -2400,1380" style="opacity:0.7"/>
+          <path class="pool-wave" d="M -3160,1480 Q -3010,1445 -2860,1480 T -2560,1480 T -2360,1480" style="opacity:0.5"/>
+          <line class="pool-ladder" x1="-2380" y1="1110" x2="-2440" y2="1110"/>
+          <line class="pool-ladder" x1="-2380" y1="1160" x2="-2440" y2="1160"/>
+          <line class="pool-ladder" x1="-2380" y1="1210" x2="-2440" y2="1210"/>
+        </g>
+
+        <!-- ===== HALI SAHA (kuzey kıyıya yakın, sahil yolu doğusunda) ===== -->
+        <g class="field-group">
+          <rect class="field" x="-3400" y="-1500" width="1000" height="600" rx="12"/>
+          <rect class="field-line" x="-3340" y="-1440" width="880" height="480" rx="6"/>
+          <line class="field-line" x1="-2900" y1="-1500" x2="-2900" y2="-900"/>
+          <circle class="field-line" cx="-2900" cy="-1200" r="80"/>
+          <rect class="field-line" x="-3400" y="-1280" width="60" height="160"/>
+          <rect class="field-line" x="-2460" y="-1280" width="60" height="160"/>
+        </g>
+
+        <!-- ===== CV — doğu cadde sonundaki kağıt (gerçek PDF görüntüsü) =====
+             Tıklanınca yeni sekmede asıl PDF açılır. -->
+        <a class="cv-paper-link" href="assets/cv.pdf" target="_blank" rel="noopener">
+          <!-- Beyaz kağıt arka plan (PDF arkasında ufak çerçeve) -->
+          <rect class="cv-paper" x="2350" y="-686" width="1000" height="1373" rx="8"/>
+          <!-- PDF görüntüsü -->
+          <image class="cv-paper-image" href="assets/cv.png"
+                 x="2400" y="-636" width="900" height="1273"
+                 preserveAspectRatio="xMidYMid meet"/>
+          <!-- Üst başlık + alt link ipucu -->
+          <text class="cv-paper-label" x="2850" y="-740">Özgeçmiş</text>
+          <text class="cv-paper-sublabel" x="2850" y="755">İndir · CV.PDF →</text>
+        </a>
+
+        <!-- ===== HERO MEYDANI ===== -->
         <circle class="plaza plaza--circle" cx="0" cy="0" r="380"/>
       </svg>
 
@@ -65,9 +184,9 @@
       </article>
 
       <!-- ============ EĞİTİM BÖLGESİ (ÜST) ============ -->
-      <div class="region-label" style="--x: 0px; --y: -1140px;">Eğitim</div>
+      <div class="region-label" style="--x: 0px; --y: -1240px;">Eğitim</div>
 
-      <article class="card" style="--x: 0px; --y: -840px;">
+      <article class="card" style="--x: 0px; --y: -900px;">
         <p class="card__label">2022 — 2026 · Devam</p>
         <h3 class="card__title">İstanbul Medipol Üniversitesi</h3>
         <p class="card__subtitle">Bilgisayar Mühendisliği · İngilizce, Tam Burslu</p>
@@ -79,9 +198,9 @@
       </article>
 
       <!-- ============ DENEYİM BÖLGESİ (SAĞ) ============ -->
-      <div class="region-label" style="--x: 1300px; --y: -560px;">Deneyim</div>
+      <div class="region-label" style="--x: 1300px; --y: -700px;">Deneyim</div>
 
-      <article class="card card--experience" style="--x: 1100px; --y: -200px;">
+      <article class="card card--experience" style="--x: 1100px; --y: -350px;">
         <p class="card__label">Şubat 2026 — Devam · Yarı Zamanlı</p>
         <h3 class="card__title">Medipol MEGA AI Research Center (MEBAR)</h3>
         <p class="card__subtitle">Yapay Zeka Araştırmacısı</p>
@@ -95,7 +214,7 @@
         </div>
       </article>
 
-      <article class="card card--experience" style="--x: 1500px; --y: -200px;">
+      <article class="card card--experience" style="--x: 1500px; --y: -350px;">
         <p class="card__label">2023 Güz — Devam</p>
         <h3 class="card__title">İstanbul Medipol Üniversitesi</h3>
         <p class="card__subtitle">Öğretim Asistanı (TA)</p>
@@ -109,7 +228,7 @@
         </div>
       </article>
 
-      <article class="card card--experience" style="--x: 1100px; --y: 200px;">
+      <article class="card card--experience" style="--x: 1100px; --y: 350px;">
         <p class="card__label">Ağustos 2025 — Eylül 2025 · Staj</p>
         <h3 class="card__title">BAYKAR Teknoloji</h3>
         <p class="card__subtitle">Native Android Geliştirme</p>
@@ -123,7 +242,7 @@
         </div>
       </article>
 
-      <article class="card card--experience" style="--x: 1500px; --y: 200px;">
+      <article class="card card--experience" style="--x: 1500px; --y: 350px;">
         <p class="card__label">Temmuz 2024 — Ağustos 2024 · Staj</p>
         <h3 class="card__title">TÜBİTAK BİLGEM</h3>
         <p class="card__subtitle">Full-Stack Web Geliştirme</p>
@@ -137,9 +256,9 @@
       </article>
 
       <!-- ============ PROJELER BÖLGESİ (SOL) ============ -->
-      <div class="region-label" style="--x: -1275px; --y: -620px;">Projeler</div>
+      <div class="region-label" style="--x: -1300px; --y: -620px;">Projeler</div>
 
-      <article class="card card--project" style="--x: -1450px; --y: -250px;">
+      <article class="card card--project" style="--x: -1700px; --y: -350px;">
         <p class="card__label">Mezuniyet Projesi · Devam Ediyor</p>
         <h3 class="card__title">KIWIO</h3>
         <p class="card__subtitle">Otonom Yapay Zeka Model Geliştirme Platformu</p>
@@ -153,7 +272,7 @@
         </div>
       </article>
 
-      <article class="card card--project" style="--x: -1100px; --y: -250px;">
+      <article class="card card--project" style="--x: -1300px; --y: -350px;">
         <p class="card__label">Freelance</p>
         <h3 class="card__title">AIMEL</h3>
         <p class="card__subtitle">Profesyonel AI Destekli E-posta İstemcisi</p>
@@ -167,7 +286,7 @@
         </div>
       </article>
 
-      <article class="card card--project" style="--x: -1275px; --y: 200px;">
+      <article class="card card--project" style="--x: -900px; --y: -350px;">
         <p class="card__label">Donanım + Yazılım</p>
         <h3 class="card__title">Otonom Sürüşlü Mini Araç</h3>
         <p class="card__subtitle">Görüntü İşleme · Derin Öğrenme · Telemetri</p>
@@ -182,9 +301,9 @@
       </article>
 
       <!-- ============ YETENEKLER BÖLGESİ (ALT) ============ -->
-      <div class="region-label" style="--x: 0px; --y: 720px;">Yetenekler</div>
+      <div class="region-label" style="--x: -450px; --y: 580px;">Yetenekler</div>
 
-      <article class="card" style="--x: 0px; --y: 1080px; --w: 520px;">
+      <article class="card" style="--x: -450px; --y: 1000px; --w: 520px;">
         <p class="card__label">Teknoloji Yığını</p>
         <h3 class="card__title">Yetenekler</h3>
         <div class="skill-grid">
@@ -220,15 +339,15 @@
       </article>
 
       <!-- ============ İLETİŞİM (ALT) ============ -->
-      <article class="card" style="--x: 0px; --y: 1580px; --w: 420px;">
+      <article class="card" style="--x: 450px; --y: 1100px; --w: 420px;">
         <p class="card__label">İletişim</p>
         <h3 class="card__title">Yolumuz kesişsin</h3>
         <ul class="contact-list">
-          <li><span class="k">E-posta</span><span class="v"><a href="mailto:hello@unalmfurkan.me">hello@unalmfurkan.me</a></span></li>
+          <li><span class="k">E-posta</span><span class="v"><a href="mailto:unalmfurkan@hotmail.com">unalmfurkan@hotmail.com</a></span></li>
           <li><span class="k">Telefon</span><span class="v">+90 553 505 28 02</span></li>
           <li><span class="k">Konum</span><span class="v">Beykoz / Kavacık, İstanbul</span></li>
           <li><span class="k">GitHub</span><span class="v"><a href="https://github.com/muhammetFurkanUnal" target="_blank" rel="noopener">muhammetFurkanUnal</a></span></li>
-          <li><span class="k">LinkedIn</span><span class="v"><a href="https://www.linkedin.com/in/muhammet-furkan-ünal" target="_blank" rel="noopener">muhammet-furkan-ünal</a></span></li>
+          <li><span class="k">LinkedIn</span><span class="v"><a href="https://www.linkedin.com/in/muhammet-furkan-%C3%BCnal-807540296/" target="_blank" rel="noopener">muhammet-furkan-ünal</a></span></li>
         </ul>
       </article>
 
@@ -277,11 +396,11 @@
   <!-- ============ ALT BÖLGE GEZGİNİ ============ -->
   <nav class="legend" aria-label="Bölgeler">
     <button class="legend__btn" data-active="true" data-x="0" data-y="0" data-scale="1">Merkez</button>
-    <button class="legend__btn" data-x="0" data-y="-840" data-scale="0.9">Eğitim</button>
-    <button class="legend__btn" data-x="1300" data-y="0" data-scale="0.55">Deneyim</button>
-    <button class="legend__btn" data-x="-1275" data-y="-20" data-scale="0.55">Projeler</button>
-    <button class="legend__btn" data-x="0" data-y="1080" data-scale="0.7">Yetenekler</button>
-    <button class="legend__btn" data-x="0" data-y="1580" data-scale="1">İletişim</button>
+    <button class="legend__btn" data-x="0" data-y="-900" data-scale="0.85">Eğitim</button>
+    <button class="legend__btn" data-x="1300" data-y="0" data-scale="0.5">Deneyim</button>
+    <button class="legend__btn" data-x="-1300" data-y="-350" data-scale="0.5">Projeler</button>
+    <button class="legend__btn" data-x="-450" data-y="1000" data-scale="0.65">Yetenekler</button>
+    <button class="legend__btn" data-x="450" data-y="1100" data-scale="0.95">İletişim</button>
   </nav>
 
   <!-- ============ MİNİMAP ============ -->

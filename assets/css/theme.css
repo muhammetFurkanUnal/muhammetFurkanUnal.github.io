@@ -75,6 +75,26 @@
   --color-plaza-shadow: rgba(40, 30, 10, 0.08);
   --color-road: #5a544a;             /* asfalt */
   --color-road-line: #d4b06a;        /* sarı yol şeridi */
+
+  --color-region-label: rgba(60, 50, 30, 0.32);
+  --color-building-edge: #1a1714;     /* bina çerçevesi (koyu) */
+
+  --color-pool-deep: #2f6b8a;        /* havuz derin suyu */
+  --color-pool: #4d8eae;             /* havuz orta */
+  --color-pool-shallow: #7fb5cf;     /* sığ kenar */
+  --color-pool-edge: #f0e8d0;        /* mermer bordür */
+  --color-pool-tile: rgba(255, 255, 255, 0.45);
+
+  --color-cv-paper: #fbf8f1;         /* CV kağıt arka plan */
+  --color-cv-paper-edge: rgba(40, 30, 10, 0.18);
+
+  --color-sand: #d9c285;             /* ada kıyı kumu */
+  --color-sand-deep: #c2a96a;        /* kıyı içi (ıslak kum) */
+  --color-sea: #5fa3c2;              /* sığ deniz */
+  --color-sea-foam: rgba(255, 255, 255, 0.35);
+
+  --color-field: #6a9456;            /* halı saha yeşili */
+  --color-field-line: rgba(255, 255, 255, 0.9);
 }
 
 /* KOYU TEMA */
@@ -114,4 +134,24 @@
   --color-plaza-shadow: rgba(0, 0, 0, 0.4);
   --color-road: #14171a;
   --color-road-line: #8a6a3a;
+
+  --color-region-label: rgba(232, 227, 214, 0.55);
+  --color-building-edge: #060708;     /* gece bina çerçevesi (daha koyu) */
+
+  --color-pool-deep: #143548;
+  --color-pool: #1e5572;
+  --color-pool-shallow: #3a7a96;
+  --color-pool-edge: #3e4348;
+  --color-pool-tile: rgba(220, 220, 200, 0.18);
+
+  --color-cv-paper: #1e2226;
+  --color-cv-paper-edge: rgba(0, 0, 0, 0.5);
+
+  --color-sand: #4a3f2a;
+  --color-sand-deep: #38301f;
+  --color-sea: #102538;
+  --color-sea-foam: rgba(220, 220, 200, 0.15);
+
+  --color-field: #2f4a35;
+  --color-field-line: rgba(220, 220, 200, 0.7);
 }
